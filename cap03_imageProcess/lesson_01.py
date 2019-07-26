@@ -37,6 +37,8 @@ HSV色相范围为[0,179]，饱和度范围为[0,255]，值范围为[0,255]。
 在我们的应用程序中，我们将尝试提取一个蓝色的对象。方法是这样的
 ①获取视频中的每一帧
 ②将BGR转换为HSV色彩空间
+    HSV颜色空间通过将颜色从饱和度和伪光照中分离出来来抽象颜色(色调)。
+    这使得它对于实际应用程序(如您提供的应用程序)非常实用。
 ③我们对HSV图像设置一个蓝色范围的阈值
 ④现在只提取蓝色对象，我们可以对图像做任何我们想做的事情。
 """
@@ -61,11 +63,11 @@ while(1):
 #    lower_blue = np.array([0,0,0])
 #    upper_blue = np.array([180,255,46])
 
-#    # define range of black color in HSV
+#    # define range of red color in HSV
 #    lower_blue = np.array([0,50,50])
 #    upper_blue = np.array([10,255,255])
 
-    # define range of black color in HSV
+    # define range of yellow color in HSV
     lower_blue = np.array([26,43,46])
     upper_blue = np.array([34,255,255])
 
@@ -83,3 +85,38 @@ while(1):
         break
 
 cv2.destroyAllWindows()
+"""
+上例中仅仅是最简单的目标追踪办法，一旦你学会了轮廓函数，你可以干许多事情，
+比如找到物体质心的轮廓，并且跟踪它就可以了，
+仅仅通过在相机前移动你的手和许多其他有趣的东西来画图。
+如何找到hsv 值去追踪呢？万能的stackoverflow在此~~：
+另外你可以使用函数 cv2.cvtColor()
+您只需传递所需的BGR值，而不是传递图像。例如，要查找绿色的HSV值，
+请在Python终端中尝试以下命令
+"""
+
+green = np.uint8([[[0,255,0 ]]])#RBG
+hsv_green = cv2.cvtColor(green,cv2.COLOR_BGR2HSV)
+print(hsv_green)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
