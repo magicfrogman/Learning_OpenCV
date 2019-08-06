@@ -11,7 +11,7 @@ lesson_03 Image Thresholding
 cv2.adaptiveThreshold
 """
 
-#建议二值化 Simple Thresholding
+#简易二值化 Simple Thresholding
 """
 事情在这里变得简单了，
 如果像素值大于阈值，则分配一个值(可以是白色)，

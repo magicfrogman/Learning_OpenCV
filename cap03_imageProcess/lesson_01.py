@@ -73,6 +73,10 @@ while(1):
 
     # Threshold the HSV image to get only blue colors
     mask = cv2.inRange(hsv, lower_blue, upper_blue)
+    
+#    加入下面两行，效果会好很多，主要是闭合处理图片
+#    kernel = np.ones((5,5),np.uint8)
+#    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
 
     # Bitwise-AND mask and original image
     res = cv2.bitwise_and(frame,frame, mask= mask)
